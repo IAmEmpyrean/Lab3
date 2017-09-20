@@ -2,56 +2,57 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Scanner;
 
-// k kool k
-
 /*
  * @author Andrew and Sarah
  */
-
 public class Mroz {
 
 
 
     public static void main(String[] args) {
-        System.out.println("Mroz had a little lamb");
-        String url = "http://erdani.com/tdpl/hamlet.txt";
-        String urlString = urlToString(url);
+        System.out.println("Mroz had a little lamb"); // for fun
+        String url = "http://erdani.com/tdpl/hamlet.txt"; // url string
+        String urlString = urlToString(url); //parses destination to string
         //String urlString = " Hamlet was a dank memer. Hamlet had his love life. Aelmao Hamlet.";
         //System.out.println(urlString);
 
-        int stringLength = urlString.length();
-        char space = ' ';
-        int g = 1;
-        int g2 = 0;
-        String word = "hamlet";
-        int z = 0;
-        boolean kek;
+        int stringLength = urlString.length(); // length of parsed destination's string
+        char space = ' '; // space char
+        int g = 1; // last space
+        int g2 = 0; // first space
+        String word = "hamlet".toLowerCase(); // word you are searching for
+        int z = 0; // count of the word in text
+        boolean kek; // wether there was a '.' or not
 
-        for(int x = 0; x < stringLength; x++) {
-           if(urlString.charAt(x) == space || urlString.charAt(x) == '.') {
-               if(urlString.charAt(x) == '.') {
+        for (int x = 0; x < stringLength; x++) { // for loop to iterate through the string
+           if (urlString.charAt(x) == space || urlString.charAt(x) == '.') { // checks for whitespace or periods
+               if (urlString.charAt(x) == '.') { // if it's a period exclude it
                    g = x;
                    x++;
                    kek = true;
-               }
-               else {
+               } else { // if not operate normal
                    kek = false;
                    g = x;
                }
-               if(g != g2) {
-                   if(urlString.substring(g2 + 1, g).toLowerCase().compareTo(word) == 0)
-                       z++;
+               if (g != g2) { // if functioning correctly
+                   if (urlString.substring(g2 + 1, g).toLowerCase().compareTo(word) == 0) {//check for word
+                       z++; // increment word counter
+                   }
 
+                   // Debugging tests
+                   //---
                    //System.out.print((g2 + 1) + " to " + (g - 1) + ": ");
                    //System.out.println(urlString.substring(g2 + 1, g));
-               if(g>g2 && !kek)
+                   // ---
+               if (g > g2 && !kek) { // updates old whitespace index to new one if there is no period
                    g2 = g;
-               else
+               } else { //removes period
                    g2 = g + 1;
+               }
                }
            }
         }
-        System.out.println(z);
+        System.out.println(word + " appears " + z + " times."); //prints the number of words
 
 
 
