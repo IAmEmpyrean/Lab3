@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Scanner;
 
-// k kool
+// k kool k
 
 /*
  * @author Andrew and Sarah
