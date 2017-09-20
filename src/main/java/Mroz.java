@@ -16,7 +16,29 @@ public class Mroz {
         System.out.println("Mroz had a little lamb");
         String url = "http://erdani.com/tdpl/hamlet.txt";
         String urlString = urlToString(url);
-        System.out.println(urlString);
+        //System.out.println(urlString);
+
+        int stringLength = urlString.length();
+        char space = ' ';
+        int g = 0;
+        int g2 = 0;
+        String word = "prince";
+        int z = 0;
+
+        for(int x = 0; x < stringLength-1; x++) {
+            if(urlString.charAt(x) == space); {
+                g = x;
+            }
+            if(g2 > 0 && g > 0) {
+                if(urlString.substring(g2, g).toLowerCase().compareTo(word) == 0) {
+                    z++;
+                }
+            }
+            if (g > g2) {
+                g2 = g;
+            }
+        }
+        System.out.println(z);
 
 
 
