@@ -16,27 +16,40 @@ public class Mroz {
         System.out.println("Mroz had a little lamb");
         String url = "http://erdani.com/tdpl/hamlet.txt";
         String urlString = urlToString(url);
+        //String urlString = " Hamlet was a dank memer. Hamlet had his love life. Aelmao Hamlet.";
         //System.out.println(urlString);
 
         int stringLength = urlString.length();
         char space = ' ';
-        int g = 0;
+        int g = 1;
         int g2 = 0;
-        String word = "prince";
+        String word = "hamlet";
         int z = 0;
+        boolean kek;
 
-        for(int x = 0; x < stringLength-1; x++) {
-            if(urlString.charAt(x) == space); {
-                g = x;
-            }
-            if(g2 > 0 && g > 0) {
-                if(urlString.substring(g2, g).toLowerCase().compareTo(word) == 0) {
-                    z++;
-                }
-            }
-            if (g > g2) {
-                g2 = g;
-            }
+        for(int x = 0; x < stringLength; x++) {
+           if(urlString.charAt(x) == space || urlString.charAt(x) == '.') {
+               if(urlString.charAt(x) == '.') {
+                   g = x;
+                   x++;
+                   kek = true;
+               }
+               else {
+                   kek = false;
+                   g = x;
+               }
+               if(g != g2) {
+                   if(urlString.substring(g2 + 1, g).toLowerCase().compareTo(word) == 0)
+                       z++;
+
+                   //System.out.print((g2 + 1) + " to " + (g - 1) + ": ");
+                   //System.out.println(urlString.substring(g2 + 1, g));
+               if(g>g2 && !kek)
+                   g2 = g;
+               else
+                   g2 = g + 1;
+               }
+           }
         }
         System.out.println(z);
 
